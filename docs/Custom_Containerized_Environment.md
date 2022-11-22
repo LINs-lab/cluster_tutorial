@@ -60,7 +60,7 @@ The status of our public proxies can be monitored here: [Grafana - vray-dashboar
 
 # Upload the custom image
 
-Instead of pushing the image to Docker Hub (which will be very slow because of the GFW), it is recommended to use the private Harbor registry: `harbor.lins.lab`.
+Instead of pushing the image to Docker Hub, it is recommended to use the private Harbor registry: `harbor.lins.lab`.
 
 You need to ask the system admin to create your Harbor user account. Once you have logged in, you can check out the [public library](https://harbor.lins.lab/harbor/projects/1/repositories):
 
