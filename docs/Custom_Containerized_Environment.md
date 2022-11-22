@@ -56,7 +56,7 @@ if the Dockerfile building process needs international internet access, you can 
 docker build -t my_image:v1.0 --build-arg http_proxy=http://192.168.123.62:18889 --build-arg https_proxy=http://192.168.123.62:18889 .
 ```
 
-The status of our public proxies can be monitored here: [Grafana - vray-dashboard](https://grafana.lins.lab/d/CCSvIIEZz/v2ray-dashboard?orgId=1)
+The status of our public proxies can be monitored here: [Grafana - v2ray-dashboard](https://grafana.lins.lab/d/CCSvIIEZz/v2ray-dashboard?orgId=1)
 
 # Upload the custom image
 

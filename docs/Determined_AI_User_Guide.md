@@ -87,7 +87,7 @@ environment:
     image: determinedai/environments:cuda-11.3-pytorch-1.10-tf-2.8-gpu-0.19.4
 ```
 
-Notes: 
+Notes:
 
 - You need to change the `task_name` and `user_name` to your own
 - Number of `resources.slots` is the number of GPUs you want to use, which is set to `1` here
