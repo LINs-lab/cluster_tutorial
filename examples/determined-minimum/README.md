@@ -1,5 +1,5 @@
 # Minimum Docker Environment for Determined AI
 
-## Acknowledgements:
+## Acknowledgments:
 
 https://github.com/determined-ai/environments

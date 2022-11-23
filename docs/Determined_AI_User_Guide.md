@@ -23,17 +23,17 @@ Determined-AI User Guide </h1>
 
 We are currently using [Determined AI](https://www.determined.ai/) to manage our GPU Cluster.
 
-You can open the dashboard (a.k.a WebUI) by the following URL and login:
+You can open the dashboard (a.k.a WebUI) by the following URL and log in:
 
 [https://gpu.lins.lab/](https://gpu.lins.lab/)
 
-Determined is a successful (aquired by Hewlett Packard Enterprise in 2021) open-source deep learning training platform that helps researchers train models more quickly, easily share GPU resources, and collaborate more effectively. [1](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/)
+Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open-source deep learning training platform that helps researchers train models more quickly, easily share GPU resources, and collaborate more effectively. [1](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/)
 
 # User Account
 
 ## Ask for your account
 
-You need to ask system `admin` to get your user account.
+You need to ask the system `admin` to get your user account.
 
 ## Authentication
 
@@ -43,7 +43,7 @@ The WebUI will automatically redirect users to a login page if there is no valid
 
 ### CLI
 
-Users can also interact with Determined using a command-line interface (CLI). The CLI is distributed as a Python wheel package; once the wheel has been installed, the CLI can be used via the det command.
+Users can also interact with Determined using a command-line interface (CLI). The CLI is distributed as a Python wheel package; once the wheel has been installed, the CLI can be used via the `det` command.
 
 You can use the CLI either on the login node or on your local development machine.
 The CLI can be installed via pip:
@@ -92,14 +92,14 @@ Notes:
 - You need to change the `task_name` and `user_name` to your own
 - Number of `resources.slots` is the number of GPUs you want to use, which is set to `1` here
 - In `bind_mounts`, it maps the dataset directory (`/labdata0`) into the container.
-- In `environment.image`, an official image by *Determined AI* is used. *Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that includes common deep learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency, which will be discussed in this tutorial: [Custom Containerized Environment](./Custom_Containerized_Environment.md)
+- In `environment.image`, an official image by *Determined AI* is used. *Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that include common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency, which will be discussed in this tutorial: [Custom Containerized Environment](./Custom_Containerized_Environment.md)
 - How `bind_mounts` works:
 
 ![Storage Model](Getting_started/storage_model.svg)
 
 ## Submit
 
-Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** and connect to a shell environment[[3]](https://gpu.lins.lab/docs/features/commands-and-shells.html#ide-integration), which brings more flexibility and productivity if you are familiar with these editors.
+Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface and thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** and connect to a shell environment[[3]](https://gpu.lins.lab/docs/features/commands-and-shells.html#ide-integration), which brings more flexibility and productivity if you are familiar with these editors.
 
 For notebook:
 

@@ -12,7 +12,7 @@ This is a manual for cluster users.
 
 ## Introduction
 
-Currently we are hosting these services in the campus network (available after [configuring the `hosts`](./docs/Getting_started.md#hosts-modification)):
+Currently, we are hosting these services in the campus network (available after [configuring the `hosts`](./docs/Getting_started.md#hosts-modification)):
 
 [Determined AI - Distributed Deep Learning and Hyperparameter Tuning Platform](https://gpu.lins.lab/)
 
@@ -20,7 +20,7 @@ Currently we are hosting these services in the campus network (available after [
 
 [Grafana - Statistics and visualization](https://grafana.lins.lab/)
 
-Our cluster is located at the core server room, E6-106.
+Our cluster is located in the core server room, E6-106.
 
 System Topology:
 
