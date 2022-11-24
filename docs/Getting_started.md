@@ -31,7 +31,7 @@
 
 Accounts that need to be created by the administrator (Peng SUN, sp12138sp@gmail.com) include:
 
-- A Linux account on the login node ([login.lins.lab](https://login.lins.lab))
+- A Linux account on the login node (`login.lins.lab`)
 - An account for the batch system (Determined AI, [gpu.lins.lab](https://gpu.lins.lab)).
 
 Note:
