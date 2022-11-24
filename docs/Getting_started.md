@@ -26,12 +26,16 @@
     - [Uploading](#uploading)
     - [Downloading](#downloading)
 
+
 # Requesting accounts
 
-Accounts that need to be created by the administrator include:
+Accounts that need to be created by the administrator (Peng SUN, sp12138sp@gmail.com) include:
 
-- A Linux account on the login node ([login.lins.lab](https://login.lins.lab/))
-- An account for the batch system (Determined AI, [gpu.lins.lab](https://gpu.lins.lab/)).
+- A Linux account on the login node ([login.lins.lab](https://login.lins.lab))
+- An account for the batch system (Determined AI, [gpu.lins.lab](https://gpu.lins.lab)).
+
+Note:
+* You can only access to the links above after setting up the hosts file. 
 
 # Accessing the cluster
 
