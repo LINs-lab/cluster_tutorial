@@ -35,9 +35,10 @@ Accounts that need to be created by the administrator (Peng SUN, sp12138sp@gmail
 - An account for the batch system (Determined AI, [gpu.lins.lab](https://gpu.lins.lab)).
 
 Note:
-* You can only access to the links above after setting up the hosts file. 
+* You can only access to the links above after setting up the hosts file.
 
 # Accessing the cluster
+A Web entry point can be found [here](https://lins.lab). 
 
 ## Security
 
