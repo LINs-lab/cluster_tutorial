@@ -59,7 +59,7 @@ You can use the CLI either on the login node or on your local development machin
 
 2) (Optional) Configure environment variable
 
-    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.1.66`.
+    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.1.66`. If you are using the login node, no configuration is required, because the system administrator has already configured this globally on the login node.
 
     For Linux, *nix including macOS, if you are using `bash` append this line to the end of `~/.bashrc` (most systems) or `~/.bash_profile` (some macOS);
 
