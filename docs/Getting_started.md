@@ -41,15 +41,15 @@ Accessing the cluster is currently only possible via secure protocols (ssh, scp,
 
 ## Setting up the hosts file
 
-Since our cluster is only accessible inside the campus's LAN, and we do not have the administration of the DNS server, setting up the *hosts* file is the best way to translate human-friendly hostnames into IP addresses.
+Since our cluster is only accessible inside the campus's LAN, and we do not have the administration of the DNS server, setting up the `hosts` file is the best way to translate human-friendly hostnames into IP addresses.
 
-The way to modify the *hosts* file is as follows:
+The way to modify the `hosts` file is as follows:
 
 ### For Windows
 
 - Press `Win-Key + R`. A small window will pop up.
 
-- Type in the following command and press `Ctrl+Shift+Enter`, to make notepad run as administrator and edit the *hosts* file.
+- Type in the following command and press `Ctrl+Shift+Enter`, to make notepad run as administrator and edit the `hosts` file.
 
 ```bat
 notepad C:\Windows\System32\drivers\etc\hosts
@@ -65,7 +65,7 @@ sudo vim /etc/hosts
 
 ### Hosts Modification
 
-Append these lines to the end of the *hosts* file:
+Append these lines to the end of the `hosts` file:
 
 ```text
 10.0.2.166 login.lins.lab
@@ -89,7 +89,7 @@ The certificate can be downloaded at: [https://lins.lab/lins-lab.crt](https://li
 
 You can connect to the cluster via the SSH protocol. For this purpose, it is required that you have an SSH client installed. The information required to connect to the cluster is the hostname (which resolves to an IP address) of the cluster and your account credentials (username, password).
 
-Since we have set up the *hosts* in the [previous section](#hosts-modification), we can use the human-readable hostname to make our connection.
+Since we have set up the `hosts` in the [previous section](#hosts-modification), we can use the human-readable hostname to make our connection.
 
 | Hostname | IP Address | Port |
 | :-- | :-- | :-- |

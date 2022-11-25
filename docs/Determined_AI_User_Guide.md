@@ -46,19 +46,44 @@ The WebUI will automatically redirect users to a login page if there is no valid
 Users can also interact with Determined using a command-line interface (CLI). The CLI is distributed as a Python wheel package; once the wheel has been installed, the CLI can be used via the `det` command.
 
 You can use the CLI either on the login node or on your local development machine.
-The CLI can be installed via pip:
 
-> Note that determined>=0.18.0 does not show the port number when using command `det shell show_ssh_command`, though this works well with ssh, Visual Studio Code etc., but PyCharm must have this port number. If you uses PyCharm and want to use its remote development on the cluster, you should use version 0.17.x.
+1) Installation
 
-```bash
-pip install determined==0.17.15
-```
+    The CLI can be installed via pip:
 
-In the CLI, the user login subcommand can be used to authenticate a user:
+    > Note that determined>=0.18.0 does not show the port number when using command `det shell show_ssh_command`, though this works well with ssh, Visual Studio Code etc., but PyCharm must have this port number. If you uses PyCharm and want to use its remote development on the cluster, you should use version 0.17.x.
 
-```bash
-det user login <username>
-```
+    ```bash
+    pip install determined==0.17.15
+    ```
+
+2) (Optional) Configure environment variable
+
+    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.1.66`.
+
+    For Linux, *nix including macOS, if you are using `bash` append this line to the end of `~/.bashrc` (most systems) or `~/.bash_profile` (some macOS);
+
+    If you are using `zsh`, append it to the end of `~/.zshrc`:
+
+    ```bash
+    export DET_MASTER=10.0.1.66
+    ```
+
+    For Windows, you can follow this tutorial: [tutorial](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
+
+3) Log in
+
+    In the CLI, the user login subcommand can be used to authenticate a user:
+
+    ```bash
+    det user login <username>
+    ```
+
+    Note: If you did not configure the environment variable, you need to specify the master's IP:
+
+    ```bash
+    det -m 10.0.1.66 user login <username>
+    ```
 
 ## Changing passwords
 

@@ -22,6 +22,8 @@ Currently, we are hosting these services in the campus network (available after 
 
 Our cluster is located in the core server room, E6-106.
 
+We have been designated with an IP address range: `10.0.2.160-192/27`.
+
 System Topology:
 
 ```text
