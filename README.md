@@ -4,21 +4,23 @@ This is a manual for cluster users.
 
 ## Quick Guide
 
-[Getting Started](./docs/Getting_started.md)
+- [Getting Started](./docs/Getting_started.md)
 
-[Determined-AI User Guide](./docs/Determined_AI_User_Guide.md)
+- [Determined-AI User Guide](./docs/Determined_AI_User_Guide.md)
 
-[Custom Containerized Environment](./docs/Custom_Containerized_Environment.md)
+- [Custom Containerized Environment](./docs/Custom_Containerized_Environment.md)
 
 ## Introduction
 
 Currently, we are hosting these services in the campus network (available after [configuring the `hosts`](./docs/Getting_started.md#hosts-modification)):
 
-[Determined AI - Distributed Deep Learning and Hyperparameter Tuning Platform](https://gpu.lins.lab/)
+- [Web entry point](https://lins.lab)
 
-[Harbor - Container registry for GPU cluster](https://harbor.lins.lab/)
+- [Determined AI - Distributed Deep Learning and Hyperparameter Tuning Platform](https://gpu.lins.lab/)
 
-[Grafana - Statistics and visualization](https://grafana.lins.lab/)
+- [Harbor - Container registry for GPU cluster](https://harbor.lins.lab/)
+
+- [Grafana - Statistics and visualization](https://grafana.lins.lab/)
 
 Our cluster is located in the core server room, E6-106.
 
