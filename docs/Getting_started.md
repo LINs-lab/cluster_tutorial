@@ -100,6 +100,7 @@ Since we have set up the `hosts` in the [previous section](#hosts-modification),
 | Hostname | IP Address | Port |
 | :-- | :-- | :-- |
 |login.lins.lab|10.0.2.166|22332|
+|lins.lab (temporary)|10.0.2.162|33322|
 
 ### SSH in Linux, *nix including macOS
 
@@ -107,6 +108,12 @@ Open a terminal and use the standard ssh command
 
 ```bash
 ssh -p 22332 username@login.lins.lab
+```
+
+VPN users can use the temporary access point on `lins.lab`:
+
+```bash
+ssh -p 33322 username@lins.lab
 ```
 
 where **username** is your username and the **hostname** can be found in the table shown above. The parameter `-p 22332` is used to declare the SSH port used on the server. For security, we modified the default port. If for instance, user **peter** would like to access the cluster, then the command would be
@@ -172,7 +179,13 @@ It is recommended to set a passphrase for the private key.
 Once this is done, copy the public key to the cluster:
 
 ```bash
-ssh-copy-id -i $HOME/.ssh/id_lins.pub    username@login.lins.lab
+ssh-copy-id -i $HOME/.ssh/id_lins.pub -p 22332 username@login.lins.lab
+```
+
+VPN users can use the temporary access point on `lins.lab`:
+
+```bash
+ssh-copy-id -i $HOME/.ssh/id_lins.pub -p 33322 username@lins.lab
 ```
 
 Finally, you can add the private key to the ssh-agent temporarily so that you don't need to enter the passphrase every time (You still need to do this every time after reboot).
@@ -245,6 +258,12 @@ If you use different key pairs for different computers (as recommended above), y
 ssh -p 22332 -i $HOME/.ssh/id_lins username@login.lins.lab
 ```
 
+VPN users can use the temporary access point on `lins.lab`:
+
+```bash
+ssh -p 33322 -i $HOME/.ssh/id_lins username@lins.lab
+```
+
 To make your life easier, you can configure your ssh client to use these options automatically by adding the following lines in your $HOME/.ssh/config file:
 
 ```text
@@ -255,7 +274,17 @@ Host cluster
     IdentityFile    ~/.ssh/id_lins
 ```
 
-For Windows, you need to use the backslash:
+VPN users can use the temporary access point on `lins.lab`:
+
+```text
+Host cluster
+    HostName        lins.lab
+    Port            33322
+    User            username
+    IdentityFile    ~/.ssh/id_lins
+```
+
+For Windows Users, you need to use the backslash in `IdentityFile`:
 
 IdentityFile    ~\\.ssh\\id_lins
 
@@ -280,10 +309,22 @@ On Linux, it's recommended to install `Remmina` and `remmina-plugin-rdp`.
 
 Using the RDP Clients is simple. Following the prompts, type in the server address, user name and password. Then, set the screen resolution and color depth you want.
 
-For security, RDP is only allowed from SSH tunnels, and the default RDP port is also changed from 3389 to 23389. One can create the SSH tunnel and forward RDP connections to localhost:23389 by
+For security, RDP is only allowed from SSH tunnels, and the default RDP port is also changed from 3389 to 23389. One can create the SSH tunnel and forward RDP connections to localhost:23389 by:
 
 ```bash
 ssh -p 22332 -NL 23389:localhost:23389 username@login.lins.lab
+```
+
+VPN users may use the temporary access point on `lins.lab` instead of `login.cvgl.lab`:
+
+```bash
+ssh -p 33322 -NL 23389:localhost:23389 username@lins.lab
+```
+
+Note: If you have completed [this step](#how-to-use-keys-with-non-default-names), you can shorten the command:
+
+```bash
+ssh -NL 23389:localhost:23389 cluster
 ```
 
 Then connect to `localhost:23389` using `mstsc.exe` or Remote Desktop App from [Microsoft Store](https://apps.microsoft.com/store/detail/microsoft-remote-desktop/9WZDNCRFJ3PS)
