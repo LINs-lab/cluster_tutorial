@@ -59,14 +59,14 @@ You can use the CLI either on the login node or on your local development machin
 
 2) (Optional) Configure environment variable
 
-    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.1.66`. If you are using the login node, no configuration is required, because the system administrator has already configured this globally on the login node.
+    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.2.162`. If you are using the login node, no configuration is required, because the system administrator has already configured this globally on the login node.
 
     For Linux, *nix including macOS, if you are using `bash` append this line to the end of `~/.bashrc` (most systems) or `~/.bash_profile` (some macOS);
 
     If you are using `zsh`, append it to the end of `~/.zshrc`:
 
     ```bash
-    export DET_MASTER=10.0.1.66
+    export DET_MASTER=10.0.2.162
     ```
 
     For Windows, you can follow this tutorial: [tutorial](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
@@ -82,7 +82,7 @@ You can use the CLI either on the login node or on your local development machin
     Note: If you did not configure the environment variable, you need to specify the master's IP:
 
     ```bash
-    det -m 10.0.1.66 user login <username>
+    det -m 10.0.2.162 user login <username>
     ```
 
 ## Changing passwords
