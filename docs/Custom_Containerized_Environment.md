@@ -66,14 +66,23 @@ You need to ask the system admin to create your Harbor user account. Once you ha
 
 <img src="./Custom_Containerized_Environment/harbor-library.png" alt="Harbor library" style="width:40vw;"/>
 
-Instead of using the default `library`, you can also create your own *project* in Harbor.
+Note that instead of using the default `library`, you can also create your own *project* in Harbor.
 
-You can create your custom docker image on the login node or on your own PC following the instructions above, and then push the image to the Harbor registry. For instance:
+Then you need to set up the CA certificate for docker:
 
 ```bash
-    docker login -u <username> -p <password> harbor.lins.lab    # You only need to login once
-    docker tag my_image:v1.0  harbor.lins.lab/library/my_image:v1.0
-    docker push harbor.lins.lab/library/my_image:v1.0
+sudo mkdir -p /etc/docker/certs.d/harbor.lins.lab
+cd /etc/docker/certs.d/harbor.lins.lab
+sudo wget https://lins.lab/lins-lab.crt --no-check-certificate
+sudo systemctl restart docker
+```
+
+Now you can create your custom docker image on the login node or on your own PC following the instructions above, and then push the image to the Harbor registry. For instance:
+
+```bash
+docker login -u <username> -p <password> harbor.lins.lab    # You only need to login once
+docker tag my_image:v1.0  harbor.lins.lab/library/my_image:v1.0
+docker push harbor.lins.lab/library/my_image:v1.0
 ```
 
 In the first line, replace `<username>` with your username and `<password>` with your password.
