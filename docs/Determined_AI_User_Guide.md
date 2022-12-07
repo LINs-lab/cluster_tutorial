@@ -124,7 +124,7 @@ Notes:
 
 ## Submit
 
-Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface and thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** and connect to a shell environment[[3]](https://gpu.lins.lab/docs/features/commands-and-shells.html#ide-integration), which brings more flexibility and productivity if you are familiar with these editors.
+Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface and thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** and connect to a shell environment[[3]](https://gpu.lins.lab/docs/interfaces/ide-integration.html), which brings more flexibility and productivity if you are familiar with these editors.
 
 For notebook:
 
@@ -153,3 +153,4 @@ Now you can see your task pending/running on the WebUI dashboard. You can manage
 
 [[1]](https://gpu.lins.lab/docs/sysadmin-basics/users.html)
 [[2]](https://zhuanlan.zhihu.com/p/422462131)
+[[3]](https://gpu.lins.lab/docs/interfaces/ide-integration.html)
