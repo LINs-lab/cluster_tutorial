@@ -82,5 +82,6 @@ Storage & Management Server:
 | Memory | Samsung M393A8G40AB2-CWE DDR4 ECC REG 3200MHz 256G (64G * 4)|
 |  SSD   | Samsung PM883 (MZ7LH960) 960GB 2.5" SATA drive * 2|
 |  SSD   | Samsung PM983 (MZQLB7T6HMLA-00003) 7.68TB 2.5" NVMe U.2 drive|
+|  HDD   | Seagate Exos X18 (ST18000NM000J-2T) 18TB * 6|
 |  NIC   | Intel X520-DA2 (82599) 10GbE Dual Port|
 | RAID   | LSI 9361-8i * 2|
