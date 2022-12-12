@@ -74,10 +74,10 @@ Append these lines to the end of the `hosts` file:
 
 ```text
 10.0.2.166 login.lins.lab
-10.0.2.168 lins.lab
-10.0.2.168 gpu.lins.lab
-10.0.2.168 harbor.lins.lab
-10.0.2.168 grafana.lins.lab
+10.0.2.169 lins.lab
+10.0.2.169 gpu.lins.lab
+10.0.2.169 harbor.lins.lab
+10.0.2.169 grafana.lins.lab
 ```
 
 ## Install the root CA certificate (Optional)
