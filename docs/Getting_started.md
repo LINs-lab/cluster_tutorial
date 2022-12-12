@@ -1,5 +1,4 @@
 <h1 align="center">Getting started with the cluster</h1>
-<p align="center">2022-06-27 v0.3.1</p>
 
 - [Requesting accounts](#requesting-accounts)
 - [Accessing the cluster](#accessing-the-cluster)
@@ -75,10 +74,10 @@ Append these lines to the end of the `hosts` file:
 
 ```text
 10.0.2.166 login.lins.lab
-10.0.2.162 lins.lab
-10.0.2.162 gpu.lins.lab
-10.0.2.162 harbor.lins.lab
-10.0.2.162 grafana.lins.lab
+10.0.2.168 lins.lab
+10.0.2.168 gpu.lins.lab
+10.0.2.168 harbor.lins.lab
+10.0.2.168 grafana.lins.lab
 ```
 
 ## Install the root CA certificate (Optional)
@@ -100,7 +99,7 @@ Since we have set up the `hosts` in the [previous section](#hosts-modification),
 | Hostname | IP Address | Port |
 | :-- | :-- | :-- |
 |login.lins.lab|10.0.2.166|22332|
-|lins.lab (temporary)|10.0.2.162|33322|
+|(temporary)|10.0.2.162|33322|
 
 ### SSH in Linux, *nix including macOS
 
@@ -110,10 +109,10 @@ Open a terminal and use the standard ssh command
 ssh -p 22332 username@login.lins.lab
 ```
 
-VPN users can use the temporary access point on `lins.lab`:
+VPN users can use the temporary access point on `10.0.2.162`:
 
 ```bash
-ssh -p 33322 username@lins.lab
+ssh -p 33322 username@10.0.2.162
 ```
 
 where **username** is your username and the **hostname** can be found in the table shown above. The parameter `-p 22332` is used to declare the SSH port used on the server. For security, we modified the default port. If for instance, user **peter** would like to access the cluster, then the command would be
@@ -182,10 +181,10 @@ Once this is done, copy the public key to the cluster:
 ssh-copy-id -i $HOME/.ssh/id_lins.pub -p 22332 username@login.lins.lab
 ```
 
-VPN users can use the temporary access point on `lins.lab`:
+VPN users can use the temporary access point on `10.0.2.162`:
 
 ```bash
-ssh-copy-id -i $HOME/.ssh/id_lins.pub -p 33322 username@lins.lab
+ssh-copy-id -i $HOME/.ssh/id_lins.pub -p 33322 username@10.0.2.162
 ```
 
 Finally, you can add the private key to the ssh-agent temporarily so that you don't need to enter the passphrase every time (You still need to do this every time after reboot).
@@ -258,10 +257,10 @@ If you use different key pairs for different computers (as recommended above), y
 ssh -p 22332 -i $HOME/.ssh/id_lins username@login.lins.lab
 ```
 
-VPN users can use the temporary access point on `lins.lab`:
+VPN users can use the temporary access point on `10.0.2.162`:
 
 ```bash
-ssh -p 33322 -i $HOME/.ssh/id_lins username@lins.lab
+ssh -p 33322 -i $HOME/.ssh/id_lins username@10.0.2.162
 ```
 
 To make your life easier, you can configure your ssh client to use these options automatically by adding the following lines in your $HOME/.ssh/config file:
@@ -274,11 +273,11 @@ Host cluster
     IdentityFile    ~/.ssh/id_lins
 ```
 
-VPN users can use the temporary access point on `lins.lab`:
+VPN users can use the temporary access point on `10.0.2.162`:
 
 ```text
 Host cluster
-    HostName        lins.lab
+    HostName        10.0.2.162
     Port            33322
     User            username
     IdentityFile    ~/.ssh/id_lins
@@ -315,10 +314,10 @@ For security, RDP is only allowed from SSH tunnels, and the default RDP port is 
 ssh -p 22332 -NL 23389:localhost:23389 username@login.lins.lab
 ```
 
-VPN users may use the temporary access point on `lins.lab` instead of `login.cvgl.lab`:
+VPN users may use the temporary access point on `10.0.2.162` instead of `login.cvgl.lab`:
 
 ```bash
-ssh -p 33322 -NL 23389:localhost:23389 username@lins.lab
+ssh -p 33322 -NL 23389:localhost:23389 username@10.0.2.162
 ```
 
 Note: If you have completed [this step](#how-to-use-keys-with-non-default-names), you can shorten the command:

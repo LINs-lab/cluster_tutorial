@@ -1,8 +1,5 @@
 <h1 align="center">Getting started with the batch system:<br>
 Determined-AI User Guide </h1>
-<p align="center">
-2022-10-21 v0.4
-</p>
 
 - [Introduction](#introduction)
 - [User Account](#user-account)
@@ -59,14 +56,14 @@ You can use the CLI either on the login node or on your local development machin
 
 2) (Optional) Configure environment variable
 
-    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.2.162`. If you are using the login node, no configuration is required, because the system administrator has already configured this globally on the login node.
+    If you are using your own PC, you need to add the environment variable `DET_MASTER=10.0.2.168`. If you are using the login node, no configuration is required, because the system administrator has already configured this globally on the login node.
 
     For Linux, *nix including macOS, if you are using `bash` append this line to the end of `~/.bashrc` (most systems) or `~/.bash_profile` (some macOS);
 
     If you are using `zsh`, append it to the end of `~/.zshrc`:
 
     ```bash
-    export DET_MASTER=10.0.2.162
+    export DET_MASTER=10.0.2.168
     ```
 
     For Windows, you can follow this tutorial: [tutorial](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
@@ -82,7 +79,7 @@ You can use the CLI either on the login node or on your local development machin
     Note: If you did not configure the environment variable, you need to specify the master's IP:
 
     ```bash
-    det -m 10.0.2.162 user login <username>
+    det -m 10.0.2.168 user login <username>
     ```
 
 ## Changing passwords
@@ -106,7 +103,9 @@ description: <task_name>
 resources:
     slots: 1
 bind_mounts:
-    - host_path: /labdata0/
+    - host_path: /home/<username>/
+      container_path: /run/determined/workdir/home/
+    - host_path: /labdata0/<project_name>/
       container_path: /run/determined/workdir/data/
 environment:
     image: determinedai/environments:cuda-11.3-pytorch-1.10-tf-2.8-gpu-0.19.4
@@ -124,7 +123,7 @@ Notes:
 
 ## Submit
 
-Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface and thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** and connect to a shell environment[[3]](https://gpu.lins.lab/docs/interfaces/ide-integration.html), which brings more flexibility and productivity if you are familiar with these editors.
+Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface and thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** to connect to a shell environment[[3]](https://gpu.lins.lab/docs/interfaces/ide-integration.html), which brings more flexibility and productivity if you are familiar with these editors.
 
 For notebook:
 

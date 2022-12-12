@@ -72,3 +72,15 @@ GPU Node 1, 2:
 |  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port|
 |  NIC   | Mellanox ConnectX-6 VPI HDR100 QSFP56 MCX653105A-ECAT 100Gb ETH/IB Single Port|
 | RAID   | LSI 9361-8i|
+
+Storage & Management Server:
+
+|  Name  |  Spec  |
+| :----: | :----  |
+|  Model | Powerleader PR4036P3|
+|  CPU   | Intel Xeon Silver 4210R*2  (20C/40T, 2.4-3.2GHz)|
+| Memory | Samsung M393A8G40AB2-CWE DDR4 ECC REG 3200MHz 256G (64G * 4)|
+|  SSD   | Samsung PM883 (MZ7LH960) 960GB 2.5" SATA drive * 2|
+|  SSD   | Samsung PM983 (MZQLB7T6HMLA-00003) 7.68TB 2.5" NVMe U.2 drive|
+|  NIC   | Intel X520-DA2 (82599) 10GbE Dual Port|
+| RAID   | LSI 9361-8i * 2|

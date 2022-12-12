@@ -1,8 +1,5 @@
 <h1 align="center">Custom Containerized Deep Learning Environment<br>
 with Docker and Harbor </h1>
-<p align="center">
-2022-10-21 v0.4
-</p>
 
 # For Beginners: build FROM a base image
 
@@ -101,7 +98,7 @@ Note that instead of using the default `library`, you can also create your own *
 
 Also, you need to complete the CA certificate configuration in the [previous section](#accelerating-the-pulling-stage).
 
-Now you can create your custom docker image on the login node or on your own PC following the instructions above, and then push the image to the Harbor registry. For instance:
+Now you can create your custom docker image on the login node or your PC following the instructions above, and then push the image to the Harbor registry. For instance:
 
 ```bash
 docker login -u <username> -p <password> harbor.lins.lab    # You only need to login once
