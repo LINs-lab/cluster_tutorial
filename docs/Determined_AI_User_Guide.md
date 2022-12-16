@@ -138,7 +138,7 @@ For shell **(strongly recommended)**:
 ```
 
 **In order to ensure a pleasant environment**, please
-* careful check your code and avoid occupying too many CPU cores.
+* carefully check your code and avoid occupying too many CPU cores.
 * try to use `OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python <your_code.py>`.
 * to be continued.
 
