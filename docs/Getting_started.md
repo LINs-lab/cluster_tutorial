@@ -24,6 +24,9 @@
   - [Uploading and downloading data](#uploading-and-downloading-data)
     - [Uploading](#uploading)
     - [Downloading](#downloading)
+    - [Using proxy service](#using-proxy-service)
+      - [Proxychains](#proxychains)
+      - [Environment variable](#environment-variable)
 
 # Requesting accounts
 
@@ -394,3 +397,47 @@ Here is an example of using Baidu Netdisk:
 
 ![baidu_netdisk](Getting_started/QQ截图20220317001515.png)
 </details>
+
+### Using proxy service
+
+We have configured both HTTP and SOCKS5 proxy services on the cluster:
+
+#### Proxychains
+
+Project homepage: [proxychains-ng](https://github.com/rofl0r/proxychains-ng)
+
+Example Usage:
+
+```bash
+proxychains curl google.com
+
+proxychains -q curl google.com # Quite mode
+
+proxychains git clone https://github.com/LINs-lab/cluster_tutorial
+```
+
+#### Environment variable
+
+Export these environment variables before program execution.
+
+This is useful when some programs that do not use `libc` cannot be hooked by `proxychains`,
+such as many programs written in `python` or `golang`.
+
+```bash
+export http_proxy=http://192.168.123.169:18889 &&\
+export https_proxy=http://192.168.123.169:18889 &&\
+export HTTP_PROXY=http://192.168.123.169:18889 &&\
+export HTTPS_PROXY=http://192.168.123.169:18889
+curl google.com
+```
+
+Outputs:
+
+```text
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com/">here</A>.
+</BODY></HTML>
+```
