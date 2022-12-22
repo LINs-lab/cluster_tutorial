@@ -125,17 +125,27 @@ Notes:
 
 Save the YAML configuration to, let's say, `test_task.yaml`. You can start a Jupyter Notebook (Lab) environment or a simple shell environment. A notebook is a web interface and thus more user-friendly. However, you can use **Visual Studio Code** or **PyCharm** to connect to a shell environment[[3]](https://gpu.lins.lab/docs/interfaces/ide-integration.html), which brings more flexibility and productivity if you are familiar with these editors.
 
-For notebook:
+For notebook **(try to avoid using notebook through DeterminedAI, due to some privacy issues)**:
 
 ```bash
     det notebook start --config-file test_task.yaml
 ```
 
-For shell:
+For shell **(strongly recommended)**:
 
 ```bash
     det shell start --config-file test_task.yaml
 ```
+
+**In order to ensure a pleasant environment**, please
+* carefully check your code and avoid occupying too many CPU cores.
+* try to use `OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python <your_code.py>`.
+* to be continued.
+
+**You are encouraged to check out more operations of Determined.AI** in the [API docs](https://docs.determined.ai/latest/interfaces/commands-and-shells.html), e.g., 
+* `det task`
+* `det shell open [task id]`
+* `det shell kill [task id]`
 
 Now you can see your task pending/running on the WebUI dashboard. You can manage the tasks on the WebUI.
 ![recent-tasks](https://docs.determined.ai/0.13.13/_images/launch-cpu-notebook@2x.jpg)
