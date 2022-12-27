@@ -138,9 +138,11 @@ For shell **(strongly recommended)**:
 ```
 
 **In order to ensure a pleasant environment**, please
+* avoid being a root user in your tasks/pods/containers.
 * carefully check your code and avoid occupying too many CPU cores.
 * try to use `OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python <your_code.py>`.
-* to be continued.
+* include your name in your <task_name>.
+* ...
 
 **You are encouraged to check out more operations of Determined.AI** in the [API docs](https://docs.determined.ai/latest/interfaces/commands-and-shells.html), e.g., 
 * `det task`
