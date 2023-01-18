@@ -20,7 +20,8 @@ RUN sed -i  "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list &
     rm -f /etc/apt/sources.list.d/* && \
     apt-get update && \
     apt-get -y install tzdata && \
-    apt-get install -y unzip python-opencv graphviz
+    apt-get install -y unzip python-opencv graphviz && \
+    apt-get clean
 COPY environment.yml /tmp/environment.yml
 COPY pip_requirements.txt /tmp/pip_requirements.txt
 RUN conda env update --name base --file /tmp/environment.yml
