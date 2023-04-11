@@ -1,4 +1,9 @@
+#! ----EDIT HERE TO CHANGE BASE IMAGE----
 FROM nvcr.io/nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+# COMMENT ABOVE & UNCOMMENT BELOW TO USE BASE IMAGE WITH PYTORCH:
+# FROM nvcr.io/nvidia/pytorch:22.12-py3
+
+# Environment variables
 ARG PYTHON_VERSION=3.8.12
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai LANG=C.UTF-8 LC_ALL=C.UTF-8 PIP_NO_CACHE_DIR=1
