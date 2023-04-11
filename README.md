@@ -73,6 +73,18 @@ GPU Node 1, 2:
 |  NIC   | Mellanox ConnectX-6 VPI HDR100 QSFP56 MCX653105A-ECAT 100Gb ETH/IB Single Port|
 | RAID   | LSI 9361-8i|
 
+GPU Node 3:
+
+|  Name  |  Spec  |
+| :----: | :----  |
+|  Model | ASUS ESC8000A-E11|
+|  CPU   | AMD EPYC 7543 * 2 (64C/128T, 2.8-3.7GHz)|
+| Memory | Samsung M393A4K40EB3-CWE DDR4 512G (32G*16) 3200MT/s ECC REG|
+|  GPU   | MANLI RTX 4090 * 8 |
+|  SSD   | Intel S4610 (SSDSC2KG96) 960G * 2 (RAID 1) |
+|  NIC   | Intel X540-AT2 |
+|  RAID  | LSI SAS3008 PCI-Express Fusion-MPT SAS-3 |
+
 Storage & Management Server:
 
 |  Name  |  Spec  |
