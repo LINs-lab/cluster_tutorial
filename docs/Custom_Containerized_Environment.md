@@ -3,9 +3,13 @@ with Docker and Harbor </h1>
 
 # For Beginners: build FROM a base image
 
-*Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that include common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency. For beginners, it is recommended that custom images use one of the Determined AI's official images as a base image, using the `FROM` instruction.
+*Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that includes common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency.
 
-Here is an example: Suppose you have `environment.yaml` for creating the `conda` environment, `pip_requirements.txt` for `pip` requirements and some `apt` packages that need to be installed. Put these files in a folder, and create a `Dockerfile` with the following contents:
+For beginners, it is recommended that custom images use one of the Determined AI's official images as a base image, using the `FROM` instruction.
+
+Here is an example: Suppose you have `environment.yaml` for creating the `conda` environment, `pip_requirements.txt` for `pip` requirements and some `apt` packages that need to be installed.
+
+Put these files in a folder, and create a `Dockerfile` with the following contents:
 
 ```dockerfile
 # Determined Image
@@ -46,9 +50,11 @@ To build the image, use the following command:
 docker build -t my_image:v1.0 .
 ```
 
-where `my_image` is your image name, and `v1.0` is the image tag that usually contains descriptions and version information. Don't forget the dot "." at the end of the command!
+where `my_image` is your image name, and `v1.0` is the image tag that usually contains descriptions and version information.
 
-if the Dockerfile building process needs international internet access, you can add build arguments to use the public proxy services:
+Don't forget the dot "." at the end of the command!
+
+If the Dockerfile building process needs international internet access, you can add build arguments to use the public proxy services:
 
 ```bash
 docker build -t my_image:v1.0 --build-arg http_proxy=http://192.168.123.169:18889 --build-arg https_proxy=http://192.168.123.169:18889 .
@@ -115,8 +121,16 @@ In the third line, push your new tagged image.
 
 # Use the custom image
 
-In the Determined AI configuration `.yaml` file (as mentioned in [the previous tutorial](./Determined_AI_User_Guide.md#task-configuration-template)), use the newly tagged image (like `harbor.lins.lab/library/my_image:v1.0` above) to tell the system to use your new image as the task environment. Also note that every time you update an image, you need to change the image name, otherwise the system will not be able to detect the image update (probably because it only uses the image name as detection, not its checksum).
+In the Determined AI configuration `.yaml` file (as mentioned in [the previous tutorial](./Determined_AI_User_Guide.md#task-configuration-template)), use the newly tagged image (like `harbor.lins.lab/library/my_image:v1.0` above) to tell the system to use your new image as the task environment.
+
+Also note that every time you update an image, you need to change the image name, otherwise the system will not be able to detect the image update (probably because it only uses the image name as detection, not its checksum).
 
 # Advanced: build an image from scratch
 
-Technically, we will be building FROM an NVIDIA's base image, which is based on an Ubuntu image. You can use the minimum template we provide: [here](./../examples/determined-minimum/)
+To make our life easier, we will build our custom image FROM NVIDIA's base image. You can use the minimum template we provide: [determined-minimum](./Example_Envs/determined-minimum/)
+
+Note that for RTX 4090, we need `CUDA` version >= `11.8`, thus you need to use the base image from [NGC/CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda) with tags >= 11.8, or [NGC/Pytorch](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) with tags >= 22.09.
+
+Here are some examples tested on RTX 4090:
+
+1. [torch-ngp](../examples/torch-ngp/)
