@@ -1,2 +1,0 @@
-jupyterlab~=3.1
-jupyter-archive~=3.2
