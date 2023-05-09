@@ -367,6 +367,10 @@ Here is an example of using Baidu Netdisk:
 
 We have configured both HTTP and SOCKS5 proxy services on the cluster:
 
+- Osaka, central Japan
+  - http://192.168.123.169:18889
+  - socks5://192.168.123.169:10089
+
 #### Proxychains
 
 Project homepage: [proxychains-ng](https://github.com/rofl0r/proxychains-ng)
