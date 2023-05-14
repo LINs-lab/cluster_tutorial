@@ -15,8 +15,8 @@ Determined-AI User Guide </h1>
   - [Connect to a shell task](#connect-to-a-shell-task)
     - [First-time setup of connecting VS Code to a shell task](#first-time-setup-of-connecting-vs-code-to-a-shell-task)
     - [Update the setup of connecting VS Code to a shell task](#update-the-setup-of-connecting-vs-code-to-a-shell-task)
+  - [Port forwarding](#port-forwarding)
   - [Experiments](#experiments)
-  - [References](#references)
 
 # Introduction
 
@@ -28,7 +28,7 @@ You can open the dashboard (a.k.a WebUI) by the following URL and log in:
 
 [https://gpu.lins.lab/](https://gpu.lins.lab/)
 
-Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open-source deep learning training platform that helps researchers train models more quickly, easily share GPU resources, and collaborate more effectively. [1](https://developer.hpe.com/blog/deep-learning-model-training-%E2%80%93-a-first-time-user%E2%80%99s-experience-with-determined-part-1/)
+Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open-source deep learning training platform that helps researchers train models more quickly, easily share GPU resources, and collaborate more effectively.
 
 # User Account
 
@@ -107,6 +107,7 @@ description: <task_name>
 resources:
     slots: 1
     resource_pool: 64c128t_512_3090
+    shm_size: 4G
 bind_mounts:
     - host_path: /home/<username>/
       container_path: /run/determined/workdir/home/
@@ -121,6 +122,7 @@ Notes:
 - You need to change the `task_name` and `user_name` to your own
 - Number of `resources.slots` is the number of GPUs you are requesting to use, which is set to `1` here
 - `resources.resource_pool` is the resource pool you are requesting to use. Currently we have two resource pools: `64c128t_512_3090` and `64c128t_512_4090`.
+- `resources.shm_size` is set to `4G` by default. You may need a greater size if you use multiple dataloader workers in pytorch, etc.
 - In `bind_mounts`, it maps the dataset directory (`/labdata0`) into the container.
 - In `environment.image`, an official image by *Determined AI* is used. *Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that include common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency, which will be discussed in this tutorial: [Custom Containerized Environment](./Custom_Containerized_Environment.md)
 - How `bind_mounts` works:
@@ -224,16 +226,36 @@ You can use **Visual Studio Code** or **PyCharm** to connect to a shell task.
 
     ![ssh config update](./Determined_AI_User_Guide/ssh_8.png)
 
+## Port forwarding
+
+You will need do the *port forwarding* from the task container to your personal computer through the SSH tunnel (managed by the `determined-cli`) when you want to set up services like `tensorboard`, etc, in your task container. 
+
+Here is an example. First launch a notebook or shell task with the `proxy_ports` configurations:
+
+```yaml
+    proxy_ports:
+      - proxy_port: 6006
+        proxy_tcp: true
+```
+
+where where 6006 is the port used by tensorboard.
+
+Then launch port forwarding on you personal computer with this command:
+
+```bash
+python -m determined.cli.tunnel --listener 6006 --auth 10.0.2.168 YOUR_TASK_UUID:6006
+```
+
+Remember to change **YOUR_TASK_UUID** to your task's UUID.
+
+Now you can open the tensorboard (http://localhost:6006) with your web browser.
+
+Reference: [Expossing custom ports - Determined AI docs](https://docs.determined.ai/latest/interfaces/proxy-ports.html#exposing-custom-ports)
+
 ## Experiments
 
 (TBA)
 
+![experiments](https://docs.determined.ai/latest/_images/adaptive-asha-experiment-detail.png)
 ![experiments](https://www.determined.ai/assets/images/developers/dashboard.jpg)
-
 ![hyper parameter tuning](https://www.determined.ai/assets/images/blogs/core-api/pic-4.png)
-
-## References
-
-[[1]](https://gpu.lins.lab/docs/sysadmin-basics/users.html)
-[[2]](https://zhuanlan.zhihu.com/p/422462131)
-[[3]](https://gpu.lins.lab/docs/interfaces/ide-integration.html)
