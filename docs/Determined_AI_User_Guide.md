@@ -233,6 +233,7 @@ You will need do the *port forwarding* from the task container to your personal 
 Here is an example. First launch a notebook or shell task with the `proxy_ports` configurations:
 
 ```yaml
+environment:
     proxy_ports:
       - proxy_port: 6006
         proxy_tcp: true
