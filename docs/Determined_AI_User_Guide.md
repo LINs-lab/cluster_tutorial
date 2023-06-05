@@ -34,7 +34,8 @@ Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open
 
 ## Ask for your account
 
-You need to ask the system `admin` to get your user account.
+You need to ask the system [admin](https://lins-lab-workspace.slack.com/team/U054PUBM7FB) [(yufan Wang)](tommark00022@gmail.com) to get your user account.
+
 
 ## Authentication
 
