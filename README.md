@@ -108,6 +108,19 @@ GPU Node 4:
 |  NIC   | Intel i350-T2 1GbE Dual Port |
 |  RAID  | LSI MegaRAID SAS 9361-8i|
 
+GPU Node 5:
+
+|  Name  |  Spec  |
+| :----: | :----  |
+|  Model | ServMax G428-H3 4U Rackmountable Server|
+|  CPU   | AMD EPYC 7543 * 2 (64C/128T, 2.8-3.7GHz)|
+|  RAM   | Samsung M393A4K40DB3-CWE DDR4 512G (32G*16) 3200MT/s ECC REG |
+|  GPU   | VID OEM RTX 4090 * 8 |
+|  SSD   | Intel D3-S4510 960GB 2.5" SATA drive * 2|
+|  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port |
+|  NIC   | Intel i350-T2 1GbE Dual Port |
+|  RAID  | LSI MegaRAID SAS 9361-8i|
+
 Storage & Management Server:
 
 |  Name  |  Spec  |
