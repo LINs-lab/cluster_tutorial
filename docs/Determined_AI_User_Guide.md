@@ -36,6 +36,11 @@ Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open
 
 You need to ask the system [admin](https://lins-lab-workspace.slack.com/team/U054PUBM7FB) [(yufan Wang)](tommark00022@gmail.com) to get your user account.
 
+### Notice:
+you should set up your own operating environment first,he [guild](https://github.com/LINs-lab/cluster_tutorial/blob/main/docs/Custom_Containerized_Environment.md) is here.
+
+Afert getting your account about _3 day_,the container will be terminnated if the GPUs idle for _2 hours_
+
 
 ## Authentication
 
