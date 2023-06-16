@@ -7,8 +7,15 @@ with Docker and Harbor </h1>
 
 For beginners, it is recommended that custom images use one of the Determined AI's official images as a base image, using the `FROM` instruction.
 
-Here is an example: Suppose you have `environment.yaml` for creating the `conda` environment, `pip_requirements.txt` for `pip` requirements and some `apt` packages that need to be installed.
+Here is an example: 
 
+login in login node.
+
+Suppose you have `environment.yaml` for creating the `conda` environment, `pip_requirements.txt` for `pip` requirements and some `apt` packages that need to be installed.
+
+```bash
+vim dockerfile
+```
 Put these files in a folder, and create a `Dockerfile` with the following contents:
 
 ```dockerfile
@@ -17,7 +24,6 @@ FROM determinedai/environments:cuda-11.3-pytorch-1.10-tf-2.8-gpu-0.19.4
 # Some important environment variables in Dockerfile
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai LANG=C.UTF-8 LC_ALL=C.UTF-8 PIP_NO_CACHE_DIR=1
-
 # Custom Configuration
 RUN sed -i  "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list && \
     sed -i  "s/security.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list && \
@@ -35,6 +41,14 @@ RUN eval "$(conda shell.bash hook)" && \
     pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple &&\
     pip install --requirement /tmp/pip_requirements.txt
 ```
+save and quit (press Esc ： wq press Enter）
+
+To build the image, use the following command:
+
+```bash
+DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 --build-arg http_proxy=http://192.168.123.169:18889 --build-arg https_proxy=http://192.168.123.169:18889 .
+```
+(if you do not have the permisson, connect with the admin）
 
 Here are some other examples:
 
@@ -56,9 +70,7 @@ Don't forget the dot "." at the end of the command!
 
 If the Dockerfile building process needs international internet access, you can add build arguments to use the public proxy services:
 
-```bash
-DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 --build-arg http_proxy=http://192.168.123.169:18889 --build-arg https_proxy=http://192.168.123.169:18889 .
-```
+
 
 The status of our public proxies can be monitored here: [Grafana - v2ray-dashboard](https://grafana.lins.lab/d/CCSvIIEZz/v2ray-dashboard?orgId=1)
 
