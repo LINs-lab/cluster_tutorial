@@ -35,14 +35,12 @@ Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open
 
 ## Ask for your account
 
-You need to ask the system [admin](https://lins-lab-workspace.slack.com/team/U054PUBM7FB) [(yufan Wang)](tommark00022@gmail.com) to get your user account.
+You need to ask the [system admin](https://lins-lab-workspace.slack.com/team/U054PUBM7FB) [(Yufan Wang)](tommark00022@gmail.com) for your user account.
 
-### Notice:
-you should set up your own operating environment first,the [guild](https://github.com/LINs-lab/cluster_tutorial/blob/main/docs/Custom_Containerized_Environment.md) is here.
-
-Afert getting your account about _3 day_,the container will be terminnated if the GPUs idle for _2 hours_
-
-if you do not want the channel disturb you , try [this settings](Determined_AI_User_Guide/slack_notice_setting.png) 
+**Tips**
+* Once getting your cluster account, you can configure your own job environment. Some [guidelines](https://github.com/LINs-lab/cluster_tutorial/blob/main/docs/Custom_Containerized_Environment.md) can be found here.
+* We have a basic GPU job monitor, and the reserved container will be terminated if all GPUs are idle for _2 hours_.
+  * We notify the container status through Slack. If you do not want the notification in the Slack channel disturbs you, please consider [this settings](Determined_AI_User_Guide/slack_notice_setting.png) 
 
 ## Authentication
 
@@ -129,7 +127,7 @@ Notes:
 
 - You need to change the `task_name` and `user_name` to your own
 - Number of `resources.slots` is the number of GPUs you are requesting to use, which is set to `1` here
-- `resources.resource_pool` is the resource pool you are requesting to use. Currently we have two resource pools: `64c128t_512_3090` and `64c128t_512_4090`.
+- `resources.resource_pool` is the resource pool you are requesting to use. Currently, we have two resource pools: `64c128t_512_3090` and `64c128t_512_4090`.
 - `resources.shm_size` is set to `4G` by default. You may need a greater size if you use multiple dataloader workers in pytorch, etc.
 - In `bind_mounts`, it maps the dataset directory (`/labdata0`) into the container.
 - In `environment.image`, an official image by *Determined AI* is used. *Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that include common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency, which will be discussed in this tutorial: [Custom Containerized Environment](./Custom_Containerized_Environment.md)
@@ -236,7 +234,7 @@ You can use **Visual Studio Code** or **PyCharm** to connect to a shell task.
 
 ## Port forwarding
 
-You will need do the *port forwarding* from the task container to your personal computer through the SSH tunnel (managed by the `determined-cli`) when you want to set up services like `tensorboard`, etc, in your task container. 
+You will need to do the *port forwarding* from the task container to your personal computer through the SSH tunnel (managed by the `determined-cli`) when you want to set up services like `tensorboard`, etc, in your task container. 
 
 Here is an example. First launch a notebook or shell task with the `proxy_ports` configurations:
 
@@ -246,8 +244,7 @@ environment:
       - proxy_port: 6006
         proxy_tcp: true
 ```
-
-where where 6006 is the port used by tensorboard.
+where 6006 is the port used by tensorboard.
 
 Then launch port forwarding on you personal computer with this command:
 

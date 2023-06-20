@@ -3,19 +3,14 @@ with Docker and Harbor </h1>
 
 # For Beginners: build FROM a base image
 
-*Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that includes common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency.
+*Determined AI* provides [*Docker* images](https://hub.docker.com/r/determinedai/environments/tags) that include common deep-learning libraries and frameworks. You can also [develop your custom image](https://gpu.lins.lab/docs/prepare-environment/custom-env.html) based on your project dependency.
 
 For beginners, it is recommended that custom images use one of the Determined AI's official images as a base image, using the `FROM` instruction.
 
-Here is an example: 
-
-login in login node.
+## Example
 
 Suppose you have `environment.yaml` for creating the `conda` environment, `pip_requirements.txt` for `pip` requirements and some `apt` packages that need to be installed.
 
-```bash
-vim dockerfile
-```
 Put these files in a folder, and create a `Dockerfile` with the following contents:
 
 ```dockerfile
@@ -41,36 +36,24 @@ RUN eval "$(conda shell.bash hook)" && \
     pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple &&\
     pip install --requirement /tmp/pip_requirements.txt
 ```
-save and quit (press Esc ： wq press Enter）
-
-To build the image, use the following command:
-
-```bash
-DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 --build-arg http_proxy=http://192.168.123.169:18889 --build-arg https_proxy=http://192.168.123.169:18889 .
-```
-(if you do not have the permisson, connect with the admin）
-
-Here are some other examples:
-
-[svox2](../examples/svox2/)
-
-[lietorch-opencv](../examples/lietorch-opencv/)
+Some other Dockerfile examples:
+* [svox2](../examples/svox2/)
+* [lietorch-opencv](../examples/lietorch-opencv/)
 
 Notice that we are using the `apt` mirror by `ustc.edu.cn` and the `pip` mirror by `bfsu.edu.cn`. They are currently fast and thus recommended by the system admin.
 
+## Build image
 To build the image, use the following command:
-
 ```bash
 DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 .
 ```
-
-where `my_image` is your image name, and `v1.0` is the image tag that usually contains descriptions and version information. `DOCKER_BUILDKIT=0` is needed if you are using private Docker registry (i.e. our Harbor) [[Reference]](https://stackoverflow.com/questions/75766469/docker-build-cannot-pull-base-image-from-private-docker-registry-that-requires).
-
-Don't forget the dot "." at the end of the command!
+where `my_image` is your image name, and `v1.0` is the image tag that usually contains descriptions and version information. `DOCKER_BUILDKIT=0` is needed if you are using a private Docker registry (i.e. our Harbor) [[Reference]](https://stackoverflow.com/questions/75766469/docker-build-cannot-pull-base-image-from-private-docker-registry-that-requires).
+Don't forget the dot `.` at the end of the command!
 
 If the Dockerfile building process needs international internet access, you can add build arguments to use the public proxy services:
-
-
+```bash
+DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 --build-arg http_proxy=http://192.168.123.169:18889 --build-arg https_proxy=http://192.168.123.169:18889 .
+```
 
 The status of our public proxies can be monitored here: [Grafana - v2ray-dashboard](https://grafana.lins.lab/d/CCSvIIEZz/v2ray-dashboard?orgId=1)
 
@@ -78,7 +61,7 @@ The pulling stage will take about half an hour or longer for the first time. We 
 
 # Accelerating the pulling stage
 
-Instead of pulling determinedai's images from Docker Hub, you can pull them from our Harbor registry.
+Instead of pulling DeterminedAI's images from Docker Hub, you can pull them from our Harbor registry.
 
 Check out [here](https://harbor.lins.lab/harbor/projects/2/repositories/environments/) to see the available images. You can also ask the system admin to add or update the images.
 
