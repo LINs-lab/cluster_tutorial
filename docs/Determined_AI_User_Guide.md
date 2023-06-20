@@ -4,6 +4,7 @@ Determined-AI User Guide </h1>
 - [Introduction](#introduction)
 - [User Account](#user-account)
   - [Ask for your account](#ask-for-your-account)
+    - [Notice:](#notice)
   - [Authentication](#authentication)
     - [WebUI](#webui)
     - [CLI](#cli)
@@ -37,10 +38,11 @@ Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open
 You need to ask the system [admin](https://lins-lab-workspace.slack.com/team/U054PUBM7FB) [(yufan Wang)](tommark00022@gmail.com) to get your user account.
 
 ### Notice:
-you should set up your own operating environment first,he [guild](https://github.com/LINs-lab/cluster_tutorial/blob/main/docs/Custom_Containerized_Environment.md) is here.
+you should set up your own operating environment first,the [guild](https://github.com/LINs-lab/cluster_tutorial/blob/main/docs/Custom_Containerized_Environment.md) is here.
 
 Afert getting your account about _3 day_,the container will be terminnated if the GPUs idle for _2 hours_
 
+if you do not want the channel disturb you , try [this settings](Determined_AI_User_Guide/slack_notice_setting.png) 
 
 ## Authentication
 
