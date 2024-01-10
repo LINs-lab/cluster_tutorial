@@ -10,6 +10,8 @@ This is a manual for cluster users.
 
 - [Custom Containerized Environment](./docs/Custom_Containerized_Environment.md)
 
+- [Problems May Enconuter Using Clusters And Possible Solutions](./docs/Problems_And_Solutions.md)
+
 ## Introduction
 
 Currently, we are hosting these services in the campus network (available after [configuring the `hosts`](./docs/Getting_started.md#hosts-modification)):
