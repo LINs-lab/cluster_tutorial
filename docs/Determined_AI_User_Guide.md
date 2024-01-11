@@ -2,9 +2,9 @@
 Determined-AI User Guide </h1>
 
 - [Introduction](#introduction)
+- [Monitoring](#monitoring)
 - [User Account](#user-account)
   - [Ask for your account](#ask-for-your-account)
-    - [Notice:](#notice)
   - [Authentication](#authentication)
     - [WebUI](#webui)
     - [CLI](#cli)
@@ -30,6 +30,10 @@ You can open the dashboard (a.k.a WebUI) by the following URL and log in:
 [https://gpu.lins.lab/](https://gpu.lins.lab/)
 
 Determined is a successful (acquired by Hewlett Packard Enterprise in 2021) open-source deep learning training platform that helps researchers train models more quickly, easily share GPU resources, and collaborate more effectively.
+
+# Monitoring
+
+You can check the realtime utilization of the cluster in the [grafana dashboard](https://grafana.lins.lab/d/glTohhh7k/cluster-realtime-hardware-utilization-cadvisor-tba-and-dcgm-exporter).
 
 # User Account
 
@@ -172,6 +176,8 @@ Now you can see your task pending/running on the WebUI dashboard. You can manage
 
 You can use **Visual Studio Code** or **PyCharm** to connect to a shell task.
 
+You also need to [install](#cli) and use `determined` on your local computer, in order to get the SSH IdentityFile, which is necessary in the next section.
+
 ### First-time setup of connecting VS Code to a shell task
 
 1. First, you need to install the [Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) plugin.
@@ -234,7 +240,7 @@ You can use **Visual Studio Code** or **PyCharm** to connect to a shell task.
 
 ## Port forwarding
 
-You will need to do the *port forwarding* from the task container to your personal computer through the SSH tunnel (managed by the `determined-cli`) when you want to set up services like `tensorboard`, etc, in your task container. 
+You will need to do the *port forwarding* from the task container to your personal computer through the SSH tunnel (managed by `determined`) when you want to set up services like `tensorboard`, etc, in your task container.
 
 Here is an example. First launch a notebook or shell task with the `proxy_ports` configurations:
 

@@ -1,4 +1,4 @@
-# Welcome to the LINs-Lab cluster
+# Welcome to the LINs & Auto Lab cluster
 
 This is a manual for cluster users.
 
@@ -10,7 +10,7 @@ This is a manual for cluster users.
 
 - [Custom Containerized Environment](./docs/Custom_Containerized_Environment.md)
 
-- [Problems May Enconuter Using Clusters And Possible Solutions](./docs/Problems_And_Solutions.md)
+- [Problems May Encounter Using Clusters And Possible Solutions](./docs/Problems_And_Solutions.md)
 
 ## Introduction
 
@@ -70,7 +70,7 @@ System Topology:
 
 **Hardware Details**
 
-GPU Node 1, 2:
+LINs lab GPU Node 1, 2:
 
 |  Name  |  Spec  |
 | :----: | :----  |
@@ -84,7 +84,7 @@ GPU Node 1, 2:
 |  NIC   | Mellanox ConnectX-6 VPI HDR100 QSFP56 MCX653105A-ECAT 100Gb ETH/IB Single Port|
 |  RAID  | LSI MegaRAID SAS 9361-8i|
 
-GPU Node 3:
+LINs lab GPU Node 3:
 
 |  Name  |  Spec  |
 | :----: | :----  |
@@ -97,7 +97,7 @@ GPU Node 3:
 |  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port |
 |  RAID  | LSI SAS3008 PCI-Express Fusion-MPT SAS-3 |
 
-GPU Node 4:
+LINs lab GPU Node 4:
 
 |  Name  |  Spec  |
 | :----: | :----  |
@@ -110,18 +110,30 @@ GPU Node 4:
 |  NIC   | Intel i350-T2 1GbE Dual Port |
 |  RAID  | LSI MegaRAID SAS 9361-8i|
 
-GPU Node 5:
+LINs lab GPU Node 5:
 
 |  Name  |  Spec  |
 | :----: | :----  |
-|  Model | ServMax G428-H3 4U Rackmountable Server|
+|  Model | AMAX ServMax G428-H3 (ASUS ESC8000A-E11)|
 |  CPU   | AMD EPYC 7543 * 2 (64C/128T, 2.8-3.7GHz)|
 |  RAM   | Samsung M393A4K40DB3-CWE DDR4 512G (32G*16) 3200MT/s ECC REG |
-|  GPU   | VID OEM RTX 4090 * 8 |
+|  GPU   | Colorful (0x7377) RTX 4090 * 8 |
 |  SSD   | Intel D3-S4510 960GB 2.5" SATA drive * 2|
 |  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port |
 |  NIC   | Intel i350-T2 1GbE Dual Port |
 |  RAID  | LSI MegaRAID SAS 9361-8i|
+
+LINs lab GPU Node 6, Auto lab GPU Node 1:
+
+|  Name  |  Spec  |
+| :----: | :----  |
+|  Model | ASUS ESC8000A-E12|
+|  CPU   | AMD EPYC 9554 * 2 (128C/256T, 3.1-3.75GHz)|
+|  RAM   | Samsung M321R4GA3BB6-CQKDS DDR5 768G (32*24) 4800MT/s ECC REG|
+|  GPU   | Gigabyte (0x1458) RTX 4090 * 8 |
+|  SSD   | Micron 5300 1.92TB 2.5" SATA drive * 2|
+|  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port |
+|  NIC   | Intel I350-T2 1GbE Dual Port |
 
 Storage & Management Server:
 
