@@ -135,6 +135,19 @@ LINs lab GPU Node 6, Auto lab GPU Node 1:
 |  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port |
 |  NIC   | Intel I350-T2 1GbE Dual Port |
 
+Auto lab GPU Node 2:
+
+|  Name  |  Spec  |
+| :----: | :----  |
+|  Model | Powerleader PR4908W |
+|  CPU   | Intel Xeon Gold 6330 * 2 (56C/112T, 2.0-3.1GHz) |
+|  RAM   | Samsung M393A8G40BB4-CWE DDR4 768G (64*12) 3200MT/s @ 2933MT/s ECC REG |
+|  GPU   | NVIDIA (0x10de) L40 48G * 8 |
+|  SSD   | Samsung PM893 960G 2.5" SATA drive * 2 (RAID1) |
+|  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port |
+|  NIC   | Intel I350-T2 1GbE Dual Port * 2 |
+|  RAID  | Broadcom / LSI MegaRAID SAS-3 3108|
+
 Storage & Management Server:
 
 |  Name  |  Spec  |
@@ -144,6 +157,7 @@ Storage & Management Server:
 |  RAM   | Samsung M393A8G40AB2-CWE DDR4 ECC REG 3200MHz 256G (64G * 4)|
 |  SSD   | Samsung PM883 (MZ7LH960) 960GB 2.5" SATA drive * 2|
 |  SSD   | Samsung PM983 (MZQLB7T6HMLA-00003) 7.68TB 2.5" NVMe U.2 drive|
+|  SSD   | Intel P5510 2.5" U.2 NVMe 7.68T *4 |
 |  HDD   | Seagate Exos X18 (ST18000NM000J-2T) 18TB * 6|
 |  NIC   | Intel X520-SR2 (82599ES) 10GbE Dual Port|
 |  NIC   | Intel i350-AM2 1GbE Dual Port |
