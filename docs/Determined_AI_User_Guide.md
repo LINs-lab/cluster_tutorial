@@ -202,7 +202,7 @@ You also need to [install](#cli) and use `determined` on your local computer, in
         -o IdentitiesOnly=yes \
         -i <YOUR KEY PATH> \
         -p <YOUR PORT NUMBER> \
-        <YOUR USERNAME>@<YOUR SHELL HOSTNAME>
+        <YOUR USERNAME>@<YOUR SHELL HOST NAME (UUID)>
     ```
 
 4. Add the shell task as a new SSH task:
@@ -254,18 +254,21 @@ You also need to [install](#cli) and use `determined` on your local computer, in
 
 1. As of the current version, PyCharm lacks support for custom options in SSH commands via the UI.
 Therefore, you must provide via an entry in your `ssh_config` file.
-You can generate this entry with VSCode by following the steps in [First-time setup of connecting VS Code to a shell task](#first-time-setup-of-connecting-vs-code-to-a-shell-task).
+You can generate this entry by following the steps in [First-time setup of connecting VS Code to a shell task](#first-time-setup-of-connecting-vs-code-to-a-shell-task).
 
 2. In PyCharm, open Settings/Preferences > Tools > SSH Configurations.
 
 3. Select the plus icon to add a new configuration.
 
-4. Enter YOUR HOST NAME, YOUR PORT NUMBER (fill in `22` here), and YOUR USERNAME in the corresponding fields.
+4. Enter `YOUR SHELL HOST NAME (UUID)`, `YOUR PORT NUMBER` (fill in `22` here), and `YOUR USERNAME` in the corresponding fields. (P.S. you can chage `YOUR SHELL HOST NAME (UUID)` into your custom one configured in the SSH config identity, e.g. `TestEnv`, as shown above)
 
 5. Switch the Authentication type dropdown to OpenSSH config and authentication agent.
 
-6. Save the new configuration by clicking OK.
+6. You can hit `Test Connection` to test it.
 
+7. Save the new configuration by clicking OK. Now you can continue to add Python Interpreters with this SSH configuration.
+
+![pycharm remote ssh](./Determined_AI_User_Guide/pycharm_1.png)
 
 ## Port forwarding
 
