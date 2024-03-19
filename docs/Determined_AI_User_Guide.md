@@ -16,6 +16,7 @@ Determined-AI User Guide </h1>
   - [Connect to a shell task](#connect-to-a-shell-task)
     - [First-time setup of connecting VS Code to a shell task](#first-time-setup-of-connecting-vs-code-to-a-shell-task)
     - [Update the setup of connecting VS Code to a shell task](#update-the-setup-of-connecting-vs-code-to-a-shell-task)
+    - [Connect PyCharm to a shell task](#connect-pycharm-to-a-shell-task)
   - [Port forwarding](#port-forwarding)
   - [Experiments](#experiments)
 
@@ -62,10 +63,8 @@ You can use the CLI either on the login node or on your local development machin
 
     The CLI can be installed via pip:
 
-    > Note that determined>=0.18.0 does not show the port number when using command `det shell show_ssh_command`, though this works well with ssh, Visual Studio Code etc., but PyCharm must have this port number. If you uses PyCharm and want to use its remote development on the cluster, you should use version 0.17.x.
-
     ```bash
-    pip install determined==0.17.15
+    pip install determined
     ```
 
 2) (Optional) Configure environment variable
@@ -194,6 +193,18 @@ You also need to [install](#cli) and use `determined` on your local computer, in
     det shell show_ssh_command <UUID>
     ```
 
+    The results should follow this pattern:
+
+    ```bash
+    ssh -o "ProxyCommand=<YOUR PROXY COMMAND>" \
+        -o StrictHostKeyChecking=no \
+        -tt \
+        -o IdentitiesOnly=yes \
+        -i <YOUR KEY PATH> \
+        -p <YOUR PORT NUMBER> \
+        <YOUR USERNAME>@<YOUR SHELL HOSTNAME>
+    ```
+
 4. Add the shell task as a new SSH task:
 
     Click the SSH button on the left-bottom corner:
@@ -237,6 +248,24 @@ You also need to [install](#cli) and use `determined` on your local computer, in
 3. Replace the old UUID with the new one (with `Ctrl + H`):
 
     ![ssh config update](./Determined_AI_User_Guide/ssh_8.png)
+
+
+### Connect PyCharm to a shell task
+
+1. As of the current version, PyCharm lacks support for custom options in SSH commands via the UI.
+Therefore, you must provide via an entry in your `ssh_config` file.
+You can generate this entry with VSCode by following the steps in [First-time setup of connecting VS Code to a shell task](#first-time-setup-of-connecting-vs-code-to-a-shell-task).
+
+2. In PyCharm, open Settings/Preferences > Tools > SSH Configurations.
+
+3. Select the plus icon to add a new configuration.
+
+4. Enter YOUR HOST NAME, YOUR PORT NUMBER (fill in `22` here), and YOUR USERNAME in the corresponding fields.
+
+5. Switch the Authentication type dropdown to OpenSSH config and authentication agent.
+
+6. Save the new configuration by clicking OK.
+
 
 ## Port forwarding
 
