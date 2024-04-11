@@ -14,8 +14,12 @@ Suppose you have `environment.yaml` for creating the `conda` environment, `pip_r
 Put these files in a folder, and create a `Dockerfile` with the following contents:
 
 ```dockerfile
-# Determined Image
+# Determined AI's base image
 FROM determinedai/environments:cuda-11.3-pytorch-1.10-tf-2.8-gpu-0.19.4
+# Another one of their base images, with newer CUDA and pytorch
+# FROM determinedai/environments:cuda-11.8-pytorch-2.0-gpu-mpi-0.27.1
+# You can check out their images here: https://hub.docker.com/r/determinedai/environments/
+
 # Some important environment variables in Dockerfile
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai LANG=C.UTF-8 LC_ALL=C.UTF-8 PIP_NO_CACHE_DIR=1
@@ -85,7 +89,9 @@ docker login -u <username> -p <password> harbor.lins.lab    # You only need to l
 Now edit the first `FROM` line in the `Dockerfile`, and change the base image to some existing image in the Harbor registry, for example:
 
 ```dockerfile
-FROM harbor.lins.lab/determinedai/environments:cuda-11.3-pytorch-1.10-lightning-1.5-tf-2.8-gpu-0.18.5
+FROM harbor.lins.lab/determinedai/environments:cuda-11.3-pytorch-1.10-tf-2.8-gpu-0.19.4
+# Or the newer one:
+# FROM harbor.lins.lab/determinedai/environments:cuda-11.8-pytorch-2.0-gpu-mpi-0.27.1
 ```
 
 # Upload the custom image
@@ -129,3 +135,4 @@ Note that for RTX 4090, we need `CUDA` version >= `11.8`, thus you need to use t
 Here are some examples tested on RTX 4090:
 
 1. [torch-ngp](../examples/torch-ngp/)
+2. [[NEW] nerfstudio](../examples/nerfstudio/)

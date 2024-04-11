@@ -45,7 +45,7 @@ ENV JUPYTER_DATA_DIR=/run/determined/jupyter/data
 ENV JUPYTER_RUNTIME_DIR=/run/determined/jupyter/runtime
 RUN git clone https://github.com/LingzheZhao/determinedai-container-scripts &&\
     cd determinedai-container-scripts &&\
-    git checkout v0.1 &&\
+    git checkout v0.2.1 &&\
     ./install_python.sh ${PYTHON_VERSION} &&\
     cp .condarc /opt/conda/.condarc &&\
     pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple &&\
