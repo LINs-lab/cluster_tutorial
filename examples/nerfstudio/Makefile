@@ -2,7 +2,7 @@ REPO_NAME=harbor.lins.lab/library/nerfstudio
 TAG=cu118-ubuntu2204-torch2.1.2
 DATE=$(shell date +%y%m%d)
 BASE_VERSION=base-$(TAG)-$(DATE)
-NERF_VERSION=v1.0.1-$(TAG)
+NERF_VERSION=v1.0.3-$(TAG)-$(DATE)
 BASE=$(REPO_NAME):$(BASE_VERSION)
 NERF=$(REPO_NAME):$(NERF_VERSION)
 
