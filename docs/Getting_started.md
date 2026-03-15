@@ -99,9 +99,9 @@ You can connect to the cluster via the SSH protocol. For this purpose, it is req
 
 Since we have set up the `hosts` in the [previous section](#hosts-modification), we can use the human-readable hostname to make our connection.
 
-| Hostname | IP Address | Port |
-| :-- | :-- | :-- |
-|login.lins.lab|10.0.2.166|22332|
+| Hostname       | IP Address | Port  |
+| :------------- | :--------- | :---- |
+| login.lins.lab | 10.0.2.166 | 22332 |
 
 ### SSH in Linux, *nix including macOS
 
@@ -365,11 +365,13 @@ Here is an example of using Baidu Netdisk:
 
 ### Using proxy service
 
-We have configured both HTTP and SOCKS5 proxy services on the cluster:
+We have configured both HTTP and SOCKS5 proxy services on the cluster. Note that authentication is now required:
 
 - Osaka, central Japan
-  - http://192.168.123.169:18889
-  - socks5://192.168.123.169:10089
+  - http://${USER}:${PASS}@192.168.123.169:18889
+  - socks5://${USER}:${PASS}@192.168.123.169:10089
+
+Replace `${USER}` and `${PASS}` with your cluster account credentials. **Important:** If your password contains special characters (e.g., `@`, `:`, `#`, etc.), they must be [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding) (i.e., `%` followed by two hexadecimal digits). For example, replace `@` with `%40`.
 
 #### Proxychains
 
@@ -394,14 +396,19 @@ such as many programs written in `python` or `golang`.
 
 ```bash
 export HF_ENDPOINT=https://hf-mirror.com &&\
-export http_proxy=http://192.168.123.169:18889 &&\
-export https_proxy=http://192.168.123.169:18889 &&\
-export HTTP_PROXY=http://192.168.123.169:18889 &&\
-export HTTPS_PROXY=http://192.168.123.169:18889 &&\
+export http_proxy='http://${USER}:${PASS}@192.168.123.169:18889' &&\
+export https_proxy='http://${USER}:${PASS}@192.168.123.169:18889' &&\
+export HTTP_PROXY='http://${USER}:${PASS}@192.168.123.169:18889' &&\
+export HTTPS_PROXY='http://${USER}:${PASS}@192.168.123.169:18889' &&\
 export NO_PROXY="localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,lins.lab,*.lins.lab,westlake.edu.cn,*.westlake.edu.cn,*.edu.cn,hf-mirror.com" &&\
 export no_proxy="localhost,127.0.0.0/8,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,lins.lab,*.lins.lab,westlake.edu.cn,*.westlake.edu.cn,*.edu.cn,hf-mirror.com"
-curl google.com
+curl -v google.com
 ```
+
+Note: If you have hardcoded proxy environment variables in your Dockerfiles, they must also be updated to include authentication. Otherwise, it may lead to failures when starting tasks via Determined AI (`det`).
+
+After updating the proxy settings, you can verify the connection with `curl -v google.com`.
+
 
 Outputs:
 
