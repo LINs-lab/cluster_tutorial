@@ -209,4 +209,4 @@ DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 --build-arg http_proxy=http://10
 
 
 # A Quick Tutorial
-[Quick Tutorial](./quick_tutorial/docker_build_images_container.md)
+[Quick Tutorial](../quick_tutorial/docker_build_images_container.md)
