@@ -10,6 +10,7 @@ with Docker and Harbor </h1>
 - [Proxy](#proxy)
   - [Set up proxy for the docker daemon](#set-up-proxy-for-the-docker-daemon)
   - [Set up proxy in the temporary building container](#set-up-proxy-in-the-temporary-building-container)
+- [A Quick Tutorial](#a-quick-tutorial)
 
 # For Beginners: build FROM a base image
 
@@ -205,3 +206,7 @@ If you also need international internet access during the Dockerfile building pr
 ```bash
 DOCKER_BUILDKIT=0 docker build -t my_image:v1.0 --build-arg http_proxy=http://10.0.2.169:18889 --build-arg https_proxy=http://10.0.2.169:18889 .
 ```
+
+
+# A Quick Tutorial
+[Quick Tutorial](./quick_tutorial/docker_build_images_container.md)
